@@ -4,7 +4,8 @@ This repository is a training project. The full brief and agent rules are in `do
 
 At the start of every session:
 
-1. Read `docs/learning/progress.md` to see where the owner left off and which exercise is open.
+1. Read `docs/learning/progress.md` to see where the owner left off and which exercise is open,
+   and `docs/learning/checklist.md` for the full task list and the per-exercise working loop.
 2. Follow `document.md`, especially §28 (golden path vs challenge path) and §30: do not solve
    owner exercises unless the owner explicitly asks for help.
 

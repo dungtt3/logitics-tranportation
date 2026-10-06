@@ -2,6 +2,7 @@
 
 This file is the hand-off between learning sessions. Read it first when resuming work on any machine.
 The full project brief is in [`document.md`](../../document.md).
+The full task list with checkboxes is in [`checklist.md`](checklist.md).
 
 ## Current status
 
