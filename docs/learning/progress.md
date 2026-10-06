@@ -9,19 +9,20 @@ The full task list with checkboxes is in [`checklist.md`](checklist.md).
 | Item | State |
 |---|---|
 | Phase | Phase 0 — Foundation |
-| First-execution steps (`document.md` §40) | Steps 1–8 done; Steps 9–10 not started |
+| First-execution steps (`document.md` §40) | Steps 1–9 done; Step 10 (Vehicle CRUD) not started |
 | Working branch | `feature/000-foundation` (branched from `develop`) |
 | Build / tests | Green: 0 warnings, 7 tests passing (4 backend, 3 frontend) |
-| Pending owner exercise | [Readiness check for PostgreSQL](#open-owner-exercise) |
+| Pending owner exercise | [EX-01 PostgreSQL readiness check](../backlog/EX-01-postgresql-readiness-check.md) |
 
 ## Next session — start here
 
-1. Review the open owner exercise below and implement it (or ask for hints).
-2. Step 9: README, `docs/architecture.md`, `docs/domain.md`, `docs/local-development.md`,
-   `docs/backlog/`, learning roadmap, ADR-001 … ADR-010.
-3. Step 10: first vertical slice — Vehicle CRUD (API + domain/application split + EF Core +
-   PostgreSQL + validation + auth foundation + tests + React UI).
-4. After Step 10: open a PR `feature/000-foundation` → `develop` and confirm CI is green on GitHub.
+1. **Read** [`docs/architecture.md`](../architecture.md), [`docs/domain.md`](../domain.md) and
+   ADR-001 … ADR-007 in [`docs/adr/`](../adr/README.md). Write 3 questions or disagreements in the
+   session log below, and explain out loud in English: "Why a modular monolith and not microservices?"
+2. Open a PR `feature/000-foundation` → `develop` so CI runs on GitHub for the first time; merge when green.
+3. Implement **EX-01** yourself on `feature/EX-01-postgresql-readiness` (branch from `develop`),
+   then ask the agent "review EX-01".
+4. Then EX-02, EX-03, and Step 10 (Vehicle CRUD) by the agent — see [`checklist.md`](checklist.md).
 
 ## Resuming on a new machine
 
@@ -93,27 +94,24 @@ cd frontend && npm ci && npm test && npm run dev   # http://localhost:5173
 > "Your readiness probe checks PostgreSQL. The database has a 30-second failover.
 > What happens to your API pods, and is that the behavior you want?"
 
-## Open owner exercise
+### 2026-10-06 — Session 1 (continued): Step 9 documentation
 
-### Add a PostgreSQL readiness check
+**What was built**
 
-Implement it yourself; ask for hints only if stuck.
+- `README.md`, `docs/architecture.md` (current vs target, layers, data ownership, cross-cutting
+  concerns), `docs/domain.md` (ubiquitous language, entities, proposed lifecycles, open questions),
+  `docs/local-development.md` (setup, ports, infrastructure commands, troubleshooting).
+- ADR-001 … ADR-007 accepted. ADR-008 (ordering), ADR-009 (idempotency), ADR-010 (scoring) left
+  as **Proposed** with open questions — the owner decides them in EX-22, EX-14/21/36, EX-32/33.
+- `docs/backlog/` with the task format (§33) and the full task file for EX-01.
+- `docs/learning/README.md`: skills trained per phase and how to work an exercise.
 
-**Acceptance criteria**
+**Decision**
 
-- With PostgreSQL stopped (`docker compose -f infrastructure/docker/compose.yaml stop postgres`),
-  `/health/ready` returns `503` while `/health/live` still returns `200`.
-- The connection string comes from configuration; no password is hard-coded or committed.
-- An integration test proves both behaviors.
-
-**Hints**
-
-- Look at `HealthCheckTags.Ready` in `src/Api/Program.cs` and how `AddHealthChecks()` accepts tags.
-- Think about what the integration test should use as the database: the Compose container,
-  or a container started by the test itself? What are the trade-offs for CI?
+- Modules are folders/namespaces inside the four layer projects, not one project per module (ADR-001).
 
 ## Exercise history
 
 | Date | Exercise | Status | Notes |
 |---|---|---|---|
-| 2026-10-06 | PostgreSQL readiness check | Open | |
+| 2026-10-06 | [EX-01 PostgreSQL readiness check](../backlog/EX-01-postgresql-readiness-check.md) | Open | |

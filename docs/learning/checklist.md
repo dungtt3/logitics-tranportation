@@ -42,12 +42,13 @@ Copy this block into the exercise's backlog file and tick it as you go:
 
 - [x] [Agent] Step 1–8: solution, frontend, Docker Compose, health endpoints, CI
 - [x] [Agent] Progress log and `CLAUDE.md` session rules
-- [ ] [Agent] Step 9: `README.md`, `docs/architecture.md`, `docs/domain.md`, `docs/local-development.md`
-- [ ] [Agent] Step 9: ADR-001 … ADR-007 (architecture choices)
-- [ ] [Agent] Step 9: ADR-008 … ADR-010 as *open questions* (you make the decisions in later exercises)
+- [x] [Agent] Step 9: `README.md`, `docs/architecture.md`, `docs/domain.md`, `docs/local-development.md`
+- [x] [Agent] Step 9: ADR-001 … ADR-007 (architecture choices)
+- [x] [Agent] Step 9: ADR-008 … ADR-010 as *open questions* (you make the decisions in later exercises)
+- [x] [Agent] Step 9: backlog format + EX-01 task file, learning roadmap (`docs/learning/README.md`)
 - [ ] [Owner] Read `architecture.md` and ADR-001 … ADR-007; write 3 questions or disagreements in `progress.md`
 - [ ] [Owner] Explain in English, out loud or in writing: "Why a modular monolith and not microservices?"
-- [ ] [Owner] **EX-01** PostgreSQL readiness check (`/health/ready` → 503 when the DB is down)
+- [ ] [Owner] **EX-01** [PostgreSQL readiness check](../backlog/EX-01-postgresql-readiness-check.md) (`/health/ready` → 503 when the DB is down)
 - [ ] [Owner] **EX-02** Redis and Kafka readiness checks — decide which dependencies should make the API "not ready"
 - [ ] [Owner] **EX-03** Structured logging + correlation ID middleware (header in, header out, in every log line)
 - [ ] [Owner] Open the first PR `feature/000-foundation` → `develop` and get CI green on GitHub
